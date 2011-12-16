@@ -2,16 +2,17 @@
 
 class ApplicationController < Track::Controller
   
-  route '/', :index
+  before_filter :test_filter, :only => :index
   
   def index
-    [200, { "Content-Type" => "text/plain"}, StringIO.new('Hello from Track!')]
+    [200, { "Content-Type" => "text/plain"}, ["Welcome #{@name}!"]]
   end
   
   private
   
-  def routing_error
-    [404, { "Content-Type" => "text/plain"}, StringIO.new('Route not found')]
+  def test_filter
+    @name = params['name']
+    respond [200, { "Content-Type" => "text/plain"}, ["Welcome my friend!"]] if @name == '' || @name.nil?
   end
   
 end

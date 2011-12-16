@@ -1,6 +1,8 @@
-source 'http://rubygems.org'
+source 'http://localhost:8808'
+source :rubygems
 
-gem 'track'
+gem 'track', '>= 0.4.0'
+# gem 'track-plugins'
 
 group :development do
   gem 'rspec'

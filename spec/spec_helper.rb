@@ -7,4 +7,4 @@ require 'rspec'
 
 require_relative 'support/controller_spec_helper'
 
-require File.join(File.expand_path('../..', __FILE__), 'application')
+require File.join(File.expand_path('../..', __FILE__), 'boot')

@@ -1,8 +1,4 @@
-require File.join(File.expand_path('..', __FILE__), 'application')
+require File.join(File.expand_path('..', __FILE__), 'boot')
 
-app = Rack::Builder.new do
-  map '/' do
-    run ApplicationController.new
-  end
-end
-run app
+use Rack::Static, :urls => ['/files'], :root => 'public'
+run Track::Application.new
